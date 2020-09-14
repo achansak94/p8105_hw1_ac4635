@@ -1,0 +1,17 @@
+---
+title: "Homework 1"
+author: "JR Chansakul"
+date: 2020-09-14
+output: 
+  html_document:
+    toc: true
+
+---
+
+
+# Problem 1
+
+
+
+
+
