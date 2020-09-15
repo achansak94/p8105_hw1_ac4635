@@ -5,11 +5,60 @@ date: 2020-09-14
 output: 
   html_document:
     toc: true
-
 ---
 
+```{r}
+library(tidyverse)
+
+```
 
 # Problem 1
+
+Creat a data frame with specified elements. 
+
+```{r}
+problem1_df =
+  tibble (
+  samp = rnorm(10),
+  samp_gt_0 = samp > 0,
+  char_vec = c("a", "b", "c",  "d",  "e",  "f", "g", "h", "a", "j"),
+  factor_vec = factor(c("low", "low", "low",  "mod",  "mod",  "mod", "mod", "high", "high", "high"))
+)
+```
+
+Take the mean of each variable in the data frame.
+
+```{r}
+mean (pull(problem1_df, samp))
+mean (pull(problem1_df, samp_gt_0))
+mean (pull(problem1_df, char_vec))
+mean (pull(problem1_df, factor_vec))
+
+```
+
+Take the mean of numbers and logical but not character or factor. 
+
+```{r}
+as.numeric (pull(problem1_df, samp))
+as.numeric (pull(problem1_df, samp_gt_0))
+as.numeric (pull(problem1_df, char_vec))
+as.numeric (pull(problem1_df, factor_vec))
+```
+
+
+
+
+
+# Problem 2
+
+data("penguins", package = "palmerpenguins")
+
+
+ls (penguins)
+nrow (bill_depth_mm)
+
+```
+
 
 
 
