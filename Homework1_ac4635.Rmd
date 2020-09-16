@@ -9,7 +9,6 @@ output:
 
 ```{r}
 library(tidyverse)
-
 ```
 
 # Problem 1
@@ -47,19 +46,20 @@ as.numeric (pull(problem1_df, factor_vec))
 
 
 
-
-
 # Problem 2
 
+install.packages("palmerpenguins")
+
+```{r collapse = TRUE}
 data("penguins", package = "palmerpenguins")
 
+summary(penguins)
 
-ls (penguins)
-nrow (bill_depth_mm)
+nrow(penguins)
+ncol(penguins)
 
+mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
 ```
-
-
 
 
 

@@ -377,12 +377,12 @@ summary {
 </div>
 
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
 ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div id="problem-1" class="section level1">
@@ -397,9 +397,9 @@ summary {
 )</code></pre>
 <p>Take the mean of each variable in the data frame.</p>
 <pre class="r"><code>mean (pull(problem1_df, samp))</code></pre>
-<pre><code>## [1] 0.5693772</code></pre>
+<pre><code>## [1] 0.4129782</code></pre>
 <pre class="r"><code>mean (pull(problem1_df, samp_gt_0))</code></pre>
-<pre><code>## [1] 0.8</code></pre>
+<pre><code>## [1] 0.6</code></pre>
 <pre class="r"><code>mean (pull(problem1_df, char_vec))</code></pre>
 <pre><code>## Warning in mean.default(pull(problem1_df, char_vec)): argument is not numeric or
 ## logical: returning NA</code></pre>
@@ -410,10 +410,10 @@ summary {
 <pre><code>## [1] NA</code></pre>
 <p>Take the mean of numbers and logical but not character or factor.</p>
 <pre class="r"><code>as.numeric (pull(problem1_df, samp))</code></pre>
-<pre><code>##  [1]  0.12426802  0.95910841  0.26314913  1.23862931 -0.11287693  1.43841787
-##  [7]  1.31602132  0.25974296  0.25291890 -0.04560715</code></pre>
+<pre><code>##  [1] -1.21887950  0.31067908 -0.01619254 -1.39945652  1.97465225 -0.82743965
+##  [7]  1.00968362  2.81227203  0.63209058  0.85237243</code></pre>
 <pre class="r"><code>as.numeric (pull(problem1_df, samp_gt_0))</code></pre>
-<pre><code>##  [1] 1 1 1 1 0 1 1 1 1 0</code></pre>
+<pre><code>##  [1] 0 1 0 0 1 0 1 1 1 1</code></pre>
 <pre class="r"><code>as.numeric (pull(problem1_df, char_vec))</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
@@ -422,9 +422,34 @@ summary {
 </div>
 <div id="problem-2" class="section level1">
 <h1>Problem 2</h1>
-<p>data(“penguins”, package = “palmerpenguins”)</p>
-<p>ls (penguins) nrow (bill_depth_mm)</p>
-<p>```</p>
+<p>install.packages(“palmerpenguins”)</p>
+<pre class="r"><code>data(&quot;penguins&quot;, package = &quot;palmerpenguins&quot;)
+
+summary(penguins)
+##       species          island    bill_length_mm  bill_depth_mm  
+##  Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
+##  Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
+##  Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
+##                                  Mean   :43.92   Mean   :17.15  
+##                                  3rd Qu.:48.50   3rd Qu.:18.70  
+##                                  Max.   :59.60   Max.   :21.50  
+##                                  NA's   :2       NA's   :2      
+##  flipper_length_mm  body_mass_g       sex           year     
+##  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
+##  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
+##  Median :197.0     Median :4050   NA's  : 11   Median :2008  
+##  Mean   :200.9     Mean   :4202                Mean   :2008  
+##  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
+##  Max.   :231.0     Max.   :6300                Max.   :2009  
+##  NA's   :2         NA's   :2
+
+nrow(penguins)
+## [1] 344
+ncol(penguins)
+## [1] 8
+
+mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
+## [1] 200.9152</code></pre>
 </div>
 
 
