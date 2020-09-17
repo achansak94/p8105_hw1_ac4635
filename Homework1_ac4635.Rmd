@@ -62,18 +62,12 @@ Species is `r class (pull(penguins, species))` variable with 3 categories: `r le
 
 Island is `r class (pull(penguins, island))` variable with with 3 categories: `r levels(pull(penguins, island))`.
 
+Bill length is a `r class (pull(penguins, bill_length_mm))` variable. The mean bill length is `r mean(pull(penguins, bill_length_mm), na.rm=TRUE)`mm and the median bill length is `r median(pull(penguins, bill_length_mm), na.rm=TRUE)`mm . The minimum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm and the maximum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm.
 
+Bill depth is a `r class (pull(penguins, bill_depth_mm))` variable. The mean bill depth is `r mean(pull(penguins, bill_depth_mm), na.rm=TRUE)`mm and the median bill depth is `r median(pull(penguins, bill_depth_mm), na.rm=TRUE)`mm .The minimum bill depth is `r min((pull(penguins, bill_depth_mm)), na.rm = TRUE)`mm and the maximum bill depth is `r min((pull(penguins, bill_depth_mm)), na.rm = TRUE)`mm.
 
+Flipper length is a `r class (pull(penguins, flipper_length_mm))` variable. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` and the median flipper length is `r median(pull(penguins, flipper_length_mm), na.rm=TRUE)`. The range for flipper length is between `r range (pull(penguins, flipper_length_mm), na.rm = TRUE)`.
 
-
-
-
-The bill length is a `r class (pull(penguins, bill_length_mm))` variable. The mean bill length is `r mean(pull(penguins, bill_length_mm), na.rm=TRUE)` and the median bill length is `r median(pull(penguins, bill_length_mm), na.rm=TRUE)` . The minimum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm and the maximum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm.
-
-Bill depth is a `r class (pull(penguins, bill_depth_mm))` variable. The range for bill depth is between `r range (pull(penguins, bill_depth_mm), na.rm = TRUE)`.
-
-Flipper length is a `r class (pull(penguins, flipper_length_mm))` variable. The mean flipper length is
-`r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` and the median flipper length is `r median(pull(penguins, flipper_length_mm), na.rm=TRUE)`.
 
 Body mass index is a `r class (pull(penguins, body_mass_g))` variable. 
 
