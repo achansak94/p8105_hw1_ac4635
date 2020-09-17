@@ -66,28 +66,16 @@ Bill length is a `r class (pull(penguins, bill_length_mm))` variable. The mean b
 
 Bill depth is a `r class (pull(penguins, bill_depth_mm))` variable. The mean bill depth is `r mean(pull(penguins, bill_depth_mm), na.rm=TRUE)`mm and the median bill depth is `r median(pull(penguins, bill_depth_mm), na.rm=TRUE)`mm .The minimum bill depth is `r min((pull(penguins, bill_depth_mm)), na.rm = TRUE)`mm and the maximum bill depth is `r min((pull(penguins, bill_depth_mm)), na.rm = TRUE)`mm.
 
-Flipper length is a `r class (pull(penguins, flipper_length_mm))` variable. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` and the median flipper length is `r median(pull(penguins, flipper_length_mm), na.rm=TRUE)`. The range for flipper length is between `r range (pull(penguins, flipper_length_mm), na.rm = TRUE)`.
+Flipper length is a `r class (pull(penguins, flipper_length_mm))` variable. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)`mm and the median flipper length is `r median(pull(penguins, flipper_length_mm), na.rm=TRUE)`mm. The range for flipper length is between `r range (pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
 
+Body mass is a `r class (pull(penguins, body_mass_g))` variable with a mean of `r mean(pull(penguins, body_mass_g), na.rm=TRUE)` grams from the sample.
 
-Body mass index is a `r class (pull(penguins, body_mass_g))` variable. 
-
-Sex is `r class (pull(penguins, body_mass_g))` variable.
+Sex is `r class (pull(penguins, sex))` variable with these categories: `r levels(pull(penguins, sex))`.
 
 Year is `r class(pull(penguins, year))` variable with a range of `r range(pull(penguins, year))`.
 
 
-
-Species is `r class (pull(penguins, species))` variable with
-`r levels(pull(penguins, species))` levels.
-
-Island is `r class (pull(penguins, island))` variable. 
-
-
-Year is `r class(pull(penguins, year))` variable
-
-
-
-This is the code Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below. 
+This is the code Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below:
 
 ```{r Penguin_Scatterplot_FlippervsBill}
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + geom_point() + ggtitle("Flipper Length (mm) vs Bill Length (mm)") + theme(plot.title = element_text(hjust = 0.5))
