@@ -37,7 +37,7 @@ mean (pull(problem1_df, factor_vec))
 
 Take the mean of numbers and logical but not character or factor. 
 
-```{r}
+```{r try_numeric, eval=FALSE}
 as.numeric (pull(problem1_df, samp))
 as.numeric (pull(problem1_df, samp_gt_0))
 as.numeric (pull(problem1_df, char_vec))
@@ -45,21 +45,72 @@ as.numeric (pull(problem1_df, factor_vec))
 ```
 
 
-
 # Problem 2
 
-install.packages("palmerpenguins")
+```{r Load_penguin, collapse = TRUE}
 
-```{r collapse = TRUE}
 data("penguins", package = "palmerpenguins")
 
-summary(penguins)
 
-nrow(penguins)
-ncol(penguins)
 
-mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
+
 ```
+
+The Penguin dataset contains the following variables:
+`r ls(penguins)`
+
+
+The size of the Penguin dataset contains `r nrow(penguins)` rows or observations and `r ncol(penguins)` variables or 
+columns. 
+
+Species is `r class (pull(penguins, species))` variable. 
+
+Island is `r class (pull(penguins, island))` variable. 
+
+The bill length is a `r class (pull(penguins, bill_length_mm))` variable. The mean bill length is `r mean(pull(penguins, bill_length_mm), na.rm=TRUE)` and the median bill length is `r median(pull(penguins, bill_length_mm), na.rm=TRUE)` . The minimum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm and the maximum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm.
+
+Bill depth is a `r class (pull(penguins, bill_depth_mm))` variable. The range for bill depth is between `r range (pull(penguins, bill_depth_mm), na.rm = TRUE)`.
+
+Flipper length is a `r class (pull(penguins, flipper_length_mm))` variable. The mean flipper length is
+`r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` and the median flipper length is `r median(pull(penguins, flipper_length_mm), na.rm=TRUE)`.
+
+Body mass index is a `r class (pull(penguins, body_mass_g))` variable. 
+
+Sex is `r class (pull(penguins, body_mass_g))` variable.
+
+Year is `r class(pull(penguins, year))` variable with a range of `r range(pull(penguins, year))`.
+
+
+
+Species is `r class (pull(penguins, species))` variable with
+`r levels(pull(penguins, species))` levels.
+
+Island is `r class (pull(penguins, island))` variable. 
+
+
+Year is `r class(pull(penguins, year))` variable
+
+
+
+
+
+
+
+There are 8 variables  in the dataset that include penguin species, the island inhabiting in Palmer Archipelago, measurements for size (flipper length, body mass, bill length, bill depth), sex, and year. Species, island, sex and year are categorical variables, while  other variables are continuous.
+
+There are 3 penguin species (Adélie, Chinstrap and Gentoo) and islands in Palmer Archipelago, Antarctica (Biscoe, Dream or Torgersen). 
+
+
+
+
+
+Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below. 
+
+```{r GG_Plot}
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + geom_point() + ggtitle("Flipper Length (mm) vs Bill Length (mm)") + theme(plot.title = element_text(hjust = 0.5))
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
 
 
 
