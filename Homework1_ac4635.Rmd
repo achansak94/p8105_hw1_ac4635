@@ -77,12 +77,8 @@ Year is `r class(pull(penguins, year))` variable with a range of `r range(pull(p
 
 This is the code Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below:
 
-```{r Penguin_Scatterplot_FlippervsBill}
+```{r Penguin_Scatterplot_FlippervsBill, warning = FALSE}
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + geom_point() + ggtitle("Flipper Length (mm) vs Bill Length (mm)") + theme(plot.title = element_text(hjust = 0.5))
 ggsave("scatter_plot.pdf", height = 4, width = 6)
 ```
-
-
-
-
 
