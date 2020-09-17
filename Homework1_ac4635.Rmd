@@ -13,21 +13,22 @@ library(tidyverse)
 
 # Problem 1
 
-Creat a data frame with specified elements. 
+Created a data frame with specified elements. 
 
-```{r}
+```{r Random_sample}
 problem1_df =
-  tibble (
-  samp = rnorm(10),
-  samp_gt_0 = samp > 0,
-  char_vec = c("a", "b", "c",  "d",  "e",  "f", "g", "h", "a", "j"),
-  factor_vec = factor(c("low", "low", "low",  "mod",  "mod",  "mod", "mod", "high", "high", "high"))
-)
+  tibble(
+    samp = rnorm(10),
+    samp_gt_0 = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+    factor_vec = factor(c("low", "low", "low", "mod", "mod", "mod", "mod", "high", "high", "high"))
+  )
 ```
+
 
 Take the mean of each variable in the data frame.
 
-```{r}
+```{r Mean_sample,collapse = TRUE}
 mean (pull(problem1_df, samp))
 mean (pull(problem1_df, samp_gt_0))
 mean (pull(problem1_df, char_vec))
@@ -47,18 +48,14 @@ as.numeric (pull(problem1_df, factor_vec))
 
 # Problem 2
 
-```{r Load_penguin, collapse = TRUE}
+```{r Load_penguin}
 
 data("penguins", package = "palmerpenguins")
-
-
-
 
 ```
 
 The Penguin dataset contains the following variables:
 `r ls(penguins)`
-
 
 The size of the Penguin dataset contains `r nrow(penguins)` rows or observations and `r ncol(penguins)` variables or 
 columns. 
@@ -92,21 +89,9 @@ Year is `r class(pull(penguins, year))` variable
 
 
 
+This is the code Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below. 
 
-
-
-
-There are 8 variables  in the dataset that include penguin species, the island inhabiting in Palmer Archipelago, measurements for size (flipper length, body mass, bill length, bill depth), sex, and year. Species, island, sex and year are categorical variables, while  other variables are continuous.
-
-There are 3 penguin species (Adélie, Chinstrap and Gentoo) and islands in Palmer Archipelago, Antarctica (Biscoe, Dream or Torgersen). 
-
-
-
-
-
-Scatterplot of flipper_length_mm (y) vs bill_length_mm (x) below. 
-
-```{r GG_Plot}
+```{r Penguin_Scatterplot_FlippervsBill}
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + geom_point() + ggtitle("Flipper Length (mm) vs Bill Length (mm)") + theme(plot.title = element_text(hjust = 0.5))
 ggsave("scatter_plot.pdf", height = 4, width = 6)
 ```
