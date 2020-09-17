@@ -26,7 +26,7 @@ problem1_df =
 ```
 
 
-Take the mean of each variable in the data frame.
+Take the mean of each variable in the data frame:
 
 ```{r Mean_sample,collapse = TRUE}
 mean (pull(problem1_df, samp))
@@ -36,7 +36,7 @@ mean (pull(problem1_df, factor_vec))
 
 ```
 
-Take the mean of numbers and logical but not character or factor. 
+The mean works for sample and logical vectors, but not character vectors and factor vectors. 
 
 ```{r try_numeric, eval=FALSE}
 as.numeric (pull(problem1_df, samp))
@@ -49,20 +49,24 @@ as.numeric (pull(problem1_df, factor_vec))
 # Problem 2
 
 ```{r Load_penguin}
-
 data("penguins", package = "palmerpenguins")
-
 ```
 
 The Penguin dataset contains the following variables:
 `r ls(penguins)`
 
-The size of the Penguin dataset contains `r nrow(penguins)` rows or observations and `r ncol(penguins)` variables or 
-columns. 
+The size of the Penguin dataset contains `r nrow(penguins)` rows or observations and `r ncol(penguins)` columns or 
+variables. 
 
-Species is `r class (pull(penguins, species))` variable. 
+Species is `r class (pull(penguins, species))` variable with 3 categories: `r levels(pull(penguins, species))`.
 
-Island is `r class (pull(penguins, island))` variable. 
+Island is `r class (pull(penguins, island))` variable with with 3 categories: `r levels(pull(penguins, island))`.
+
+
+
+
+
+
 
 The bill length is a `r class (pull(penguins, bill_length_mm))` variable. The mean bill length is `r mean(pull(penguins, bill_length_mm), na.rm=TRUE)` and the median bill length is `r median(pull(penguins, bill_length_mm), na.rm=TRUE)` . The minimum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm and the maximum bill length is `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)`mm.
 
